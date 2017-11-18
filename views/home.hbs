@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Some website</title>
+</head>
+<body>
+  {{> header}}
+  <p>{{screamIt welcomeMessage}}</p>
+  <!--To pass arguments into the helpers we 1st specify the helper and then after a space pass the arguments separate by space.
+    Ex: screamIt welcomeMessage goodByMessage
+  -->
+</body>
+{{> footer}}<!--that how to inject a partial locate in views/partials file-->
+</html>
