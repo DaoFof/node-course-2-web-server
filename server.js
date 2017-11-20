@@ -6,11 +6,19 @@ handlebarshelper are going to be way to register functions to run to dynamically
 Git is going to let us keep track of the changes to the project over time. It is also useful for backing up our work
 Git can be use to save our project, to back uo project into Github server, to deploy project live to the web
 */
+/*
+
+*/
 
 const express = require ('express');
 const hbs =  require('hbs'); // used to configure express for rendering dynamic page
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;
+/*
+process.env is an object that store our environment varible as key value pair
+port variable is set to process.env.PORT so that heroku attribute the value on internet or if that not exist we use 3000
+*/
 
 var app = express();
 
@@ -96,6 +104,13 @@ app.get('/bad', (req, res) =>{
   })
 });// /bad: which going to simulate when a request failed -send back json with errorMessage property
 /*Express let us create a lot  of pages aside with the root page like about, contactus and so one pages*/
-app.listen(3000,()=>{
-  console.log('Server is up on port 3000');
-});/* app.listen is goind to bind the app to a port on the machine*/
+
+
+/*
+for heroku to work we will use environment variable because of the port which will change when deploying the app.
+then we will create a start attribute in the script object of package.json. A script is a command capable of being executed in the terminal.
+This script is added and set to node server.js and name start so that when heroku will to launch the app they will start the good file because, heroku doesn't know the name of our file.
+*/
+app.listen(port,()=>{
+  console.log(`Server is up on port ${port}`);
+});/* app.listen is going to bind the app to a port on the machine*/
