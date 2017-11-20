@@ -98,6 +98,13 @@ app.get('/about', (req, res) =>{
   2nd is the object of argument to pass in the file*/
 });
 
+app.get('/projects', (req, res) =>{
+  res.render('projects.hbs',{
+    pageTitle: 'Portfolio page',
+    welcomeMessage: 'Welcome to projects page'
+  });
+});
+
 app.get('/bad', (req, res) =>{
   res.send({
     errorMessage: 'Unable to handle request'
